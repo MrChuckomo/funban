@@ -21,5 +21,5 @@ def home():
 
     return render_template(
         'home.html',
-        app_title='Template App'
+        app_title='Funban Home'
     )
