@@ -2,6 +2,8 @@
 
 A fun and Flask-web-based [Kanban](https://en.wikipedia.org/wiki/Kanban_board) board!
 
+<img src="doc/ipad-screen.png" width="75%">
+<img src="doc/iphone-screen.png" width="35%">
 
 # Development
 
