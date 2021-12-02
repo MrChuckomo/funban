@@ -2,6 +2,10 @@
 
 A fun and Flask-web-based [Kanban](https://en.wikipedia.org/wiki/Kanban_board) board!
 
+![iphone screenshot](doc/iphone-screen.png)
+![ipad screenshot](doc/ipad-screen.png)
+![web screenshot](doc/web-screen.png)
+
 
 # Development
 
