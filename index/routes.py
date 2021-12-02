@@ -18,7 +18,8 @@ from flask import render_template
 @app.route('/', methods=['GET'])
 @app.route('/home', methods=['GET'])
 def home():
+
     return render_template(
-        'base.html',
+        'home.html',
         app_title='Template App'
     )
