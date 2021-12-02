@@ -2,9 +2,12 @@
 
 A fun and Flask-web-based [Kanban](https://en.wikipedia.org/wiki/Kanban_board) board!
 
-![iphone screenshot](doc/iphone-screen.png)
-![ipad screenshot](doc/ipad-screen.png)
-![web screenshot](doc/web-screen.png)
+<img src="doc/ipad-screen.png" width="50%">
+<img src="doc/iphone-screen.png" width="25%">
+
+<!-- ![iphone screenshot](doc/iphone-screen.png){width="50%"} -->
+<!-- ![ipad screenshot](doc/ipad-screen.png) -->
+<!-- ![web screenshot](doc/web-screen.png) -->
 
 
 # Development
