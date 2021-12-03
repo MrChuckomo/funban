@@ -42,10 +42,16 @@ def home():
 
 @app.route('/setup', methods=['GET'])
 def setup():
+    db = TinyDB(f'{app.config["RES_FOLDER"]}config.json')
+    boards = db.table('boards')
+    profiles = db.table('profiles')
+
     return render_template(
         'setup.html',
         app_title='Funban Setup',
         active_setup='active',
+        all_boards=boards.all(),
+        all_profiles=profiles.all(),
     )
 
 
