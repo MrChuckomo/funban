@@ -6,11 +6,11 @@
     <div class="btn-group mb-3" role="group">
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                Boards
+                Board: <span class="fw-bold">{{ active_board['name'] }}</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
                 {% for board in all_boards %}
-                <li><a class="dropdown-item" href="#">{{ board['name'] }}</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('home', board_id=board.doc_id) }}">{{ board['name'] }}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -23,13 +23,14 @@
                 <h5 class="m-0"><i class="bi {{ lane['icon'] }}"></i> {{ lane['name'] }}</h5>
             </div>
             <div class="card-body">
-                <!-- NOTE: Show list if issues -->
+                <!-- TODO: Show list if issues -->
             </div>
         </div>
         {% endfor %}
     </div>
 
-    <div class="card-group shadow">
+    <!-- TODO: Demo board - delete later -->
+    <div class="card-group mt-5 shadow">
         <div class="card">
             <div class="card-header">
                 <h5 class="m-0"><i class="bi bi-file-earmark-medical"></i> Backlog</h5>

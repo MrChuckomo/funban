@@ -10,6 +10,7 @@ Creation Date: 02-Dec-2021
 from index import app
 from flask import url_for
 from flask import redirect
+from flask import request
 from flask import render_template
 from tinydb import TinyDB
 
@@ -19,8 +20,14 @@ from tinydb import TinyDB
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/home', methods=['GET', 'POST'])
 def home():
-    db = TinyDB(f'{app.config["RES_FOLDER"]}config.json')
+    board_id = request.args.get('board_id')
 
+    if board_id:
+        board_id = int(board_id)
+    else:
+        board_id = 1
+
+    db = TinyDB(f'{app.config["RES_FOLDER"]}config.json')
     boards = db.table('boards')
     profiles = db.table('profiles')
 
@@ -29,7 +36,8 @@ def home():
         app_title='Funban Home',
         active_home='active',
         all_boards=boards.all(),
-        profile=profiles.get(doc_id=1),
+        active_board=boards.get(doc_id=board_id),
+        profile=profiles.get(doc_id=boards.get(doc_id=board_id)['profile_id']),
     )
 
 @app.route('/setup', methods=['GET'])
