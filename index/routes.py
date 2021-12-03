@@ -16,8 +16,8 @@ from tinydb import TinyDB
 
 # ---------------------------------------------------------------------------------------------------------------------
 
-@app.route('/', methods=['GET'])
-@app.route('/home', methods=['GET'])
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/home', methods=['GET', 'POST'])
 def home():
     db = TinyDB(f'{app.config["RES_FOLDER"]}config.json')
 
@@ -29,7 +29,7 @@ def home():
         app_title='Funban Home',
         active_home='active',
         all_boards=boards.all(),
-        all_profiles=profiles.all(),
+        profile=profiles.get(doc_id=1),
     )
 
 @app.route('/setup', methods=['GET'])
