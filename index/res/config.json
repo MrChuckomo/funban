@@ -1,12 +1,13 @@
 {
     "profiles": {
         "1": {
-            "name": "default",
+            "name": "Default",
             "lanes": [
                 {
                     "name": "Backlog",
                     "icon": "bi-file-earmark-medical",
                     "role": null,
+                    "issue_limit": 10,
                     "is_archive": false,
                     "archive_after": null
                 },
@@ -14,6 +15,7 @@
                     "name": "In Progress",
                     "icon": "bi-arrow-up-right",
                     "role": null,
+                    "issue_limit": null,
                     "is_archive": false,
                     "archive_after": null
                 },
@@ -21,6 +23,7 @@
                     "name": "Done",
                     "icon": "bi-check-circle",
                     "role": "archive",
+                    "issue_limit": null,
                     "is_archive": true,
                     "archive_after": "2h"
                 },
@@ -28,13 +31,14 @@
                     "name": "On Hold",
                     "icon": "bi-slash-square",
                     "role": null,
+                    "issue_limit": null,
                     "is_archive": false,
                     "archive_after": null
                 }
             ]
         },
         "2": {
-            "name": "classic",
+            "name": "Classic",
             "lanes": [
                 {
                     "name": "ToDo",
