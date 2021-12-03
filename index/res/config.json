@@ -37,7 +37,7 @@
             "name": "classic",
             "lanes": [
                 {
-                    "name": "Backlog",
+                    "name": "ToDo",
                     "icon": "bi-file-earmark-medical",
                     "role": null,
                     "is_archive": false,

@@ -47,3 +47,16 @@ def setup():
         app_title='Funban Setup',
         active_setup='active',
     )
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# NOTE: Redirect Links
+
+@app.route('/add_issue', methods=['GET'])
+def add_issue():
+    lane = request.args.get('lane')
+    board_id = request.args.get('board_id')
+
+    return redirect(
+        url_for('home', board_id=board_id)
+    )

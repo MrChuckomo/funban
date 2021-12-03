@@ -2,17 +2,21 @@
 {% block content %}
 
 <div class="container-fluid my-3">
-
-    <div class="btn-group mb-3" role="group">
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                Board: <span class="fw-bold">{{ active_board['name'] }}</span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                {% for board in all_boards %}
-                <li><a class="dropdown-item" href="{{ url_for('home', board_id=board.doc_id) }}">{{ board['name'] }}</a></li>
-                {% endfor %}
-            </ul>
+    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group me-2" role="group">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                    Board: <span class="fw-bold">{{ active_board['name'] }}</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                    {% for board in all_boards %}
+                    <li><a class="dropdown-item" href="{{ url_for('home', board_id=board.doc_id) }}">{{ board['name'] }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="btn-group" role="group">
+            <button class="btn btn-primary">New Issue</button>
         </div>
     </div>
 
@@ -22,8 +26,14 @@
             <div class="card-header">
                 <h5 class="m-0"><i class="bi {{ lane['icon'] }}"></i> {{ lane['name'] }}</h5>
             </div>
-            <div class="card-body">
+            <div class="card-body p-0">
                 <!-- TODO: Show list if issues -->
+            </div>
+            <div class="card-footer bg-white p-2">
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control">
+                    <a href="{{ url_for('add_issue', lane=lane['name'], board_id=active_board.doc_id) }}" class="btn btn-primary" type="button"><i class="bi bi-plus-circle"></i></a>
+                </div>
             </div>
         </div>
         {% endfor %}
@@ -35,8 +45,8 @@
             <div class="card-header">
                 <h5 class="m-0"><i class="bi bi-file-earmark-medical"></i> Backlog</h5>
             </div>
-            <div class="card-body">
-                <div class="card border-info">
+            <div class="card-body p-0">
+                <div class="card m-1 border-info">
                     <div class="card-body">
                         <h5 class="card-title">Docker Deployment</h5>
                         <div class="card-text">Create a docker deployment file.</div>
@@ -51,7 +61,7 @@
             <div class="card-header">
                 <h5 class="m-0"><i class="bi bi-arrow-up-right"></i> In Progress</h5>
             </div>
-            <div class="card-body">
+            <div class="card-body p-0">
                 
             </div>
         </div>
@@ -59,8 +69,8 @@
             <div class="card-header">
                 <h5 class="m-0"><i class="bi bi-check-circle"></i> Done</h5>
             </div>
-            <div class="card-body">
-                <div class="card border-danger mb-3">
+            <div class="card-body p-0">
+                <div class="card m-1 border-danger mb-3">
                     <div class="card-body">
                         <h5 class="card-title">Fix Website Layout</h5>
                         <div class="card-text"></div>
@@ -69,7 +79,7 @@
                         <span class="badge bg-danger">Created 1 days ago</span>
                     </div>
                 </div>
-                <div class="card border-warning">
+                <div class="card m-1 border-warning">
                     <div class="card-body">
                         <h5 class="card-title">Create Documentation</h5>
                         <div class="card-text">Write a long detailed documentation.</div>
@@ -84,7 +94,7 @@
             <div class="card-header">
                 <h5 class="m-0"><i class="bi bi-slash-square"></i> On Hold</h5>
             </div>
-            <div class="card-body">
+            <div class="card-body p-0">
                 
             </div>
         </div>
