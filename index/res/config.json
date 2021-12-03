@@ -3,17 +3,91 @@
         "1": {
             "name": "default",
             "lanes": [
-                "Backlog",
-                "In Progress",
-                "Done",
-                "On Hold"
+                {
+                    "name": "Backlog",
+                    "icon": "bi-file-earmark-medical",
+                    "role": null,
+                    "is_archive": false,
+                    "archive_after": null
+                },
+                {
+                    "name": "In Progress",
+                    "icon": "bi-arrow-up-right",
+                    "role": null,
+                    "is_archive": false,
+                    "archive_after": null
+                },
+                {
+                    "name": "Done",
+                    "icon": "bi-check-circle",
+                    "role": "archive",
+                    "is_archive": true,
+                    "archive_after": "2h"
+                },
+                {
+                    "name": "On Hold",
+                    "icon": "bi-slash-square",
+                    "role": null,
+                    "is_archive": false,
+                    "archive_after": null
+                }
+            ]
+        },
+        "2": {
+            "name": "classic",
+            "lanes": [
+                {
+                    "name": "Backlog",
+                    "icon": "bi-file-earmark-medical",
+                    "role": null,
+                    "is_archive": false,
+                    "archive_after": null
+                },
+                {
+                    "name": "In Progress",
+                    "icon": "bi-arrow-up-right",
+                    "role": null,
+                    "is_archive": false,
+                    "archive_after": null
+                },
+                {
+                    "name": "Done",
+                    "icon": "bi-check-circle",
+                    "role": "archive",
+                    "is_archive": true,
+                    "archive_after": "2h"
+                }
             ]
         }
     },
     "boards": {
         "1": {
             "name": "Work",
-            "profile_id": 1
+            "profile_id": 1,
+            "issue_categories": [
+                {
+                    "name": "Task",
+                    "color": "info"
+                },
+                {
+                    "name": "Bug",
+                    "color": "danger"
+                }
+            ]
+        },
+        "2": {
+            "name": "Classic",
+            "profile_id": 2,
+            "issue_categories": [
+                {
+                    "name": "Task",
+                    "color": "info"
+                },
+                {
+                    "name": "Bug",
+                    "color": "danger"
+                }
+            ]
         }
     }
 }
