@@ -13,6 +13,6 @@ import os
 # ---------------------------------------------------------------------------------------------------------------------
 
 class Config(object):
-
-    RELEASE_VERSION = '1.0.0'
     SECRET_KEY = os.environ.get('SECRET_KEY') or '123456789abcdfghijklmopqrrstuvwxyz'
+    PROJECT_CTX = os.path.dirname(os.path.abspath(__file__))
+    RES_FOLDER = f'{PROJECT_CTX}{os.sep}index{os.sep}res{os.sep}'
