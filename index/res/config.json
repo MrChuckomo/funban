@@ -1,8 +1,19 @@
 {
-    "lanes": [
-        "Backlog",
-        "In Progress",
-        "Done",
-        "On Hold"
-    ]
+    "profiles": {
+        "1": {
+            "name": "default",
+            "lanes": [
+                "Backlog",
+                "In Progress",
+                "Done",
+                "On Hold"
+            ]
+        }
+    },
+    "boards": {
+        "1": {
+            "name": "Work",
+            "profile_id": 1
+        }
+    }
 }
