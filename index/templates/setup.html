@@ -3,13 +3,6 @@
 
 <div class="container bg-white py-3">
 
-    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-        <div class="btn-group" role="group">
-            <button class="btn btn-primary">New Board</button>
-            <button class="btn btn-primary">New Profile</button>
-        </div>
-    </div>
-
     <!-- NOTE: Boards configurations -->
     <div class="py-3">
         <h3>Boards</h3>
@@ -30,6 +23,13 @@
                 </div>
             </div>
             {% endfor %}
+            <div class="col">
+                <a href="#" class="card border border-primary position-relative h-100">
+                    <div class="position-absolute top-50 start-50 translate-middle">
+                        <i class="bi bi-plus-circle-dotted" style="font-size: 2rem;"></i>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
     
@@ -64,6 +64,13 @@
                 </div>
             </div>
             {% endfor %}
+            <div class="col">
+                <a href="#" class="card border border-primary position-relative h-100">
+                    <div class="position-absolute top-50 start-50 translate-middle">
+                        <i class="bi bi-plus-circle-dotted" style="font-size: 2rem;"></i>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 
