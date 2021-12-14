@@ -24,7 +24,7 @@
             </div>
             {% endfor %}
             <div class="col">
-                <a href="#" class="card border border-primary position-relative h-100">
+                <a href="#" class="card border border-primary position-relative h-100" data-bs-toggle="modal" data-bs-target="#boardModal">
                     <div class="position-absolute top-50 start-50 translate-middle">
                         <i class="bi bi-plus-circle-dotted" style="font-size: 2rem;"></i>
                     </div>
@@ -65,7 +65,7 @@
             </div>
             {% endfor %}
             <div class="col">
-                <a href="#" class="card border border-primary position-relative h-100">
+                <a href="#" class="card border border-primary position-relative h-100" data-bs-toggle="modal" data-bs-target="#profileModal">
                     <div class="position-absolute top-50 start-50 translate-middle">
                         <i class="bi bi-plus-circle-dotted" style="font-size: 2rem;"></i>
                     </div>
@@ -74,6 +74,74 @@
         </div>
     </div>
 
+</div>
+
+<!-- Board Modal -->
+<div class="modal fade" id="boardModal" tabindex="-1" aria-labelledby="boardModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="boardModalLabel">Board Configuration</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="POST">
+                <div class="modal-body">
+                        <div class="form-floating mb-3">
+                            {{ board_form.name(class='form-control') }}
+                            {{ board_form.name.label() }}
+                        </div>
+                        <div class="form-floating mb-3">
+                            {{ board_form.profile(class='form-select') }}
+                            {{ board_form.profile.label() }}
+                        </div>
+                        <div class="mb-3">
+                            {{ board_form.task_color.label(class='form-label') }}
+                            {{ board_form.task_color(class='form-control form-control-color', type='color') }}
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        {{ board_form.submit_board(class='btn btn-primary') }}
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>
+
+<!-- Profile Modal -->
+<div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="profileModalLabel">Profile Configuration</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="POST">
+                <div class="modal-body">
+                        <div class="form-floating mb-3">
+                            {{ profile_form.name(class='form-control') }}
+                            {{ profile_form.name.label() }}
+                        </div>
+                        <div class="form-floating mb-3">
+                            {{ profile_form.lane_name(class='form-control') }}
+                            {{ profile_form.lane_name.label() }}
+                        </div>
+                        <div class="mb-3">
+                            {{ profile_form.lane_icon(class='form-check') }}
+                            {{ profile_form.lane_icon.label(class='form-check-label') }}
+                        </div>
+                        <div class="mb-3 form-check">
+                            {{ profile_form.is_archive_lane(class='form-check-input') }}
+                            {{ profile_form.is_archive_lane.label(class='form-check-label') }}
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        {{ profile_form.submit_profile(class='btn btn-primary') }}
+                    </div>
+                </div>
+        </form>
+    </div>
 </div>
 
 {% endblock %}

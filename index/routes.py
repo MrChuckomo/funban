@@ -14,6 +14,9 @@ from flask import request
 from flask import render_template
 from tinydb import TinyDB
 
+from index.forms import BoardForm
+from index.forms import ProfileForm
+
 
 # ---------------------------------------------------------------------------------------------------------------------
 
@@ -40,11 +43,22 @@ def home():
         profile=profiles.get(doc_id=boards.get(doc_id=board_id)['profile_id']),
     )
 
-@app.route('/setup', methods=['GET'])
+@app.route('/setup', methods=['GET', 'POST'])
 def setup():
     db = TinyDB(f'{app.config["RES_FOLDER"]}config.json')
     boards = db.table('boards')
     profiles = db.table('profiles')
+
+    board_form = BoardForm()
+    profile_form = ProfileForm()
+
+    if request.method == 'POST' and 'submit_board' in request.form:
+        print(board_form.name.data)
+        print(board_form.profile.data)
+        print(board_form.task_color.data)
+
+    for profile in profiles.all():
+        board_form.profile.choices.append((profile.doc_id, profile['name']))
 
     return render_template(
         'setup.html',
@@ -52,6 +66,8 @@ def setup():
         active_setup='active',
         all_boards=boards.all(),
         all_profiles=profiles.all(),
+        board_form=board_form,
+        profile_form=profile_form
     )
 
 
